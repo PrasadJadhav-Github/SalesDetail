@@ -144,12 +144,12 @@ class DisplayFragment : Fragment() {
     }
 
     private fun sellsPersonWiseData(month: String, year: String) {
-        val salesData = dbHelper?.selectSalesDetails(month, year)
-        if (salesData != null && salesData.isNotEmpty()) {
+        val salesPersonData = dbHelper?.selectSalesDetails(month, year)
+        if (salesPersonData != null && salesPersonData.isNotEmpty()) {
             val personSalesMap = mutableMapOf<String, Double>()
 
 
-            for (person in salesData) {
+            for (person in salesPersonData) {
                 personSalesMap[person.salesPersonName] = personSalesMap.getOrDefault(person.salesPersonName, 0.0) + person.sales
             }
 
